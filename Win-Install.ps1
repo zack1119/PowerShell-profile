@@ -10,13 +10,13 @@ if ($PSVersionTable.PSVersion.Major -lt "7") {
   $pshPath = Join-Path -Path $dPath -ChildPath "\PowerShell"
   $profilePath = Join-Path -Path $HOME -ChildPath "\PowerShell-profile"
 
-  if (not (Test-Path $pshPath){
-    New-Item -ItemType "directory" -Path $pshPath
+  if (!(Test-Path $pshPath)){
+    New-Item -ItemType directory -Path $pshPath
   }
   Get-ChildItem -Path "$profilePath\profile" -Recurse | Move-Item -Destination $pshPath -Force
 
   if (Test-Path $sshPath){
-    if (not {Test-Path $sshPath"\.config"}){
+    if (!(Test-Path $sshPath"\.config")){
       Move-Item -Path "$profilePath\.ssh\.config" -Destination $sshPath -Force
     }
   } else {
