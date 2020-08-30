@@ -8,7 +8,7 @@ if ($PSVersionTable.PSVersion.Major -lt "7") {
   $dPath = Join-Path -Path $HOME -ChildPath "\Documents"
   $sshPath = Join-Path -Path $dPath -ChildPath "\.ssh"
   $pshPath = Join-Path -Path $dPath -ChildPath "\PowerShell"
-  $profilePath = Join-Path -Path $dPath -ChildPath "\PowerShell-profile"
+  $profilePath = Join-Path -Path $HOME -ChildPath "\PowerShell-profile"
 
   if (not (Test-Path $pshPath){
     New-Item -ItemType "directory" -Path $pshPath
